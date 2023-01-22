@@ -1,9 +1,7 @@
-import sys
-from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtGui, QtWidgets
 from task_1 import Ui_MainWindow_
+from task_2 import Ui_MainWindow__
 
 
 class Ui_MainWindow(object):
@@ -12,6 +10,12 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow_()
         self.ui.setupUi(self.window2)
         self.window2.show()
+
+    def task__2(self):
+        self.window3 = QtWidgets.QMainWindow()
+        self.ui2 = Ui_MainWindow__()
+        self.ui2.setupUi(self.window3)
+        self.window3.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -32,7 +36,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setStyleSheet("background-color:#42f5e0;border-radius:10%")
         self.pushButton.setStyleSheet("background-color:#42f5e0;border-radius:10%")
         self.pushButton_2.setObjectName("Task 2")
-        self.pushButton_2.clicked.connect(self.task__1)
+        self.pushButton_2.clicked.connect(self.task__2)
         self.pushButton_2.clicked.connect(MainWindow.close)
 
         self.label = QtWidgets.QLabel(self.centralwidget)

@@ -3,10 +3,10 @@ import random as r
 
 def values_and_target(Number_of_Boxes, Difficulty):
     # choosing random numbers in the different boxes
-    Number = [r.choice([-9, -8, -7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9]) for _ in range(Number_of_Boxes)]
+    Number = [r.choice(range(-10, 10)) for _ in range(Number_of_Boxes)]
 
     # choosing random operations for the numbers
-    Operations = [str(r.choice(['+', '-', '*', '/'])) for _ in range(Number_of_Boxes)]
+    Operations = [str(r.choice(['+', '-', '*'])) for _ in range(Number_of_Boxes)]
 
     # creating box values
     Box_values = [Operations[k] + ' ' + str(Number[k]) for k in range(Number_of_Boxes)]
@@ -24,16 +24,9 @@ def values_and_target(Number_of_Boxes, Difficulty):
             Box_values.insert(i, new_num)
 
     # creating target
-    while True:
-        cal = r.sample(Box_values, Difficulty)
-        target = 1
-        for i in cal:
-            target = str(eval(str(target) + i))
-
-        try:
-            if target[-1] == '0' and target[-2] == '.':
-                break
-        except:
-            continue
+    cal = r.sample(Box_values, Difficulty)
+    target = 1
+    for i in cal:
+        target = str(eval(str(target) + i))
 
     return tuple([Box_values, target])  # returning the values as tuples

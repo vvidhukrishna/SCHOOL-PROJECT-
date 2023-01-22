@@ -4,39 +4,27 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5 import QtGui, QtWidgets
 from algoritham import values_and_target
-from task_2 import Ui_MainWindow__
 
-class Ui_MainWindow_(object):
+class Ui_MainWindow__(object):
     def __init__(self):
-        self.Difficulty = 3
+        self.Difficulty = 6
         self.moving_value = 1
         self.values, self.target = values_and_target(8, self.Difficulty)
         self.target = str(int(float(self.target)))
         print(self.target)
-
-    def task__2(self):
-        self.window3 = QtWidgets.QMainWindow()
-        self.ui2 = Ui_MainWindow__()
-        self.ui2.setupUi(self.window3)
-        self.window3.show()
 
     def win_message(self):
         msg = QMessageBox()
         msg.setWindowTitle("Victory Box!")
         msg.setText("YOU WON!!!")
         msg.setIcon(QMessageBox.Information)
-        msg.setStandardButtons(QMessageBox.Close|QMessageBox.Retry)
-        msg.setDefaultButton(QMessageBox.Close)
+        msg.setStandardButtons(QMessageBox.Close)
         msg.buttonClicked.connect(self.reply)
         msg.exec_()
 
     def reply(self, i):
         if i.text() == 'Close':
             exit()
-        elif i.text() == 'Retry':
-            self.task__2()
-
-
 
     def animation(self):
         self.animation = QPropertyAnimation(self.movingbutton, b'geometry')
@@ -293,7 +281,7 @@ class Ui_MainWindow_(object):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_()
+    ui = Ui_MainWindow__()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
